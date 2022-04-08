@@ -40,8 +40,7 @@ class nodeinfo:
             value = 0
         return value
     def printinfo(self):
-        output = ",".join([str(self.cpu_load),str(self.mem_load),str(self.mem_amount),str(self.gpu_load),str(self.gpu_mem_load),str(self
-.gpu_mem_amount)])
+        output = ",".join([str(self.cpu_load),str(self.mem_load),str(self.mem_amount),str(self.gpu_load),str(self.gpu_mem_load),str(self.gpu_mem_amount)])
         return output
 
 #Get nodes statistics
@@ -168,9 +167,9 @@ def get_info():
                     gpu_load = 0
                 #GPU memory
                 if gpumeminfo:
-                    gpu_mem_amount = gpumeminfo.split(",")              #string to list
-                    gpu_mem_amount = list(map(int, gpu_mem_amount))     #string list to int list
-                    gpu_mem_amount = sum(gpu_mem_amount)                #sum of elements
+                    gpu_mem_amount = gpumeminfo.split(",")
+                    gpu_mem_amount = list(map(int, gpu_mem_amount))
+                    gpu_mem_amount = sum(gpu_mem_amount)
                 else:
                     gpu_mem_amount = 0
                 teslas.update(cpu_load, mem_amount, gpu_load, gpu_mem_amount)
