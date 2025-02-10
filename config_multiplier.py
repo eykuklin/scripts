@@ -113,11 +113,13 @@ def main():
     # Read file directly or add a fiction section
     if section_flag:
         config = ConfigParser()
+        config.optionxform=str  # preserve registry of params
         config.read(ini_file)
     else:
         with open(ini_file, 'r') as f:
             config_string = '[dummy_section]\n' + f.read()
         config = ConfigParser()
+        config.optionxform=str
         config.read_string(config_string)
 
     # Create a new dictionary of parameter values with numeric keys instead of parameter names
